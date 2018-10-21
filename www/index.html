@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="css/vue-material.min.css">
+    <link rel="stylesheet" href="css/default-dark.css">
+    <title>PonyUp!</title>
+</head>
+<body>
+<div id="app">
+    <md-app md-mode="reveal">
+        <md-app-toolbar class="md-primary">
+            <md-button class="md-icon-button" @click="toggleMenu()">
+                <md-icon>menu</md-icon>
+            </md-button>
+            <span class="md-title">{{ title }}</span>
+        </md-app-toolbar>
+            <md-avatar class="md-large">
+                <img src="img/logo.png" alt="logo">
+            </md-avatar>
+        <md-content>
+        <md-card v-for="a in apps" :key="a.name">
+              <md-card-header>
+                <md-card-header-text>
+                  <div class="md-title">{{a.name}}</div>
+                </md-card-header-text>
+
+              </md-card-header>
+            <md-card-content>
+                Daily usage limit: {{a.daily_limit_minutes}}
+            </md-card-content>
+
+              <md-card-actions>
+                <md-button>Details</md-button>
+                <md-button>Configure</md-button>
+              </md-card-actions>
+        </md-card>
+        </md-content>
+
+    </md-app>
+</div>
+
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/vue.min.js"></script>
+<script type="text/javascript" src="js/vue-material.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
